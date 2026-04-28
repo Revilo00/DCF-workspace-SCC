@@ -1,0 +1,13 @@
+{
+  "color": {
+    "brand": {
+      "primary":   { "value": "#3B82F6" },
+      "secondary": { "value": "#10B981" }
+    },
+    "neutral": {
+      "0":   { "value": "#FFFFFF" },
+      "100": { "value": "#F5F5F5" },
+      "900": { "value": "#111111" }
+    }
+  }
+}
