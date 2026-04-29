@@ -1,1 +1,4 @@
 build/
+
+*storybook.log
+storybook-static
