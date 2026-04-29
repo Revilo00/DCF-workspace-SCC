@@ -1,31 +1,41 @@
 /**
- * Style Dictionary v5 build configuration.
+ * Style Dictionary v5 build configuration with light + dark theming.
  *
- * Reads tokens/tokens.json and emits CSS, JS, and JSON outputs.
+ * Two separate Style Dictionary builds run sequentially:
+ *
+ *   1. Light/base build
+ *      Source: tokens/tokens.json
+ *      Outputs: build/css/tokens.css        (scoped to :root)
+ *               build/js/tokens.js          (slim ESM export)
+ *               build/json/tokens.flat.json (flat key/value)
+ *
+ *   2. Dark theme build
+ *      Source: tokens/tokens.json (for primitives) + tokens/themes/dark.json
+ *              with a filter so only the dark file's tokens emit
+ *      Output: build/css/tokens.dark.css    (scoped to [data-theme="dark"])
+ *
+ * Why two builds and not one with token sets:
+ *   - SD's default behaviour when two source files define the same token
+ *     path is to warn and let the second one win, which would corrupt the
+ *     light :root output. Separate builds give each theme its own clean
+ *     dictionary while still letting both resolve aliases against the
+ *     same primitives.
  *
  * Conventions:
  *   - Strict DTCG ($value, $type, $description, alias = "{group.token}")
- *   - Three-tier source: primitives -> semantic -> component (the top-level
- *     wrapper keys are stripped at preprocess so aliases resolve cleanly)
- *   - CSS preserves var() references so theme overrides cascade
- *   - Composite typography is expanded to leaf custom properties for CSS
- *   - Composite shadows are kept whole (use Style Dictionary's built-in
- *     shadow shorthand transform, not expanded leaves)
+ *   - Three-tier source: primitives -> semantic -> component
+ *   - CSS preserves var() refs so the cascade does the work at runtime
  */
 
 import StyleDictionary from 'style-dictionary';
 import { register } from '@tokens-studio/sd-transforms';
 
-// excludeParentKeys strips the `primitives`/`semantic`/`component`
-// wrappers so aliases like "{fontWeight.regular}" resolve correctly.
 register(StyleDictionary, {
   excludeParentKeys: true,
 });
 
 // -----------------------------------------------------------------
-// Slim JS exporter — a clean tree of {path: value}, none of SD's
-// internal metadata. Better for Storybook stories and component code
-// than the default `javascript/esm` format.
+// Slim JS exporter — clean tree of {path: value}, no SD metadata.
 // -----------------------------------------------------------------
 StyleDictionary.registerFormat({
   name: 'javascript/esm-slim',
@@ -44,44 +54,32 @@ StyleDictionary.registerFormat({
   },
 });
 
-const sd = new StyleDictionary({
+// -----------------------------------------------------------------
+// 1. Light/base build
+// -----------------------------------------------------------------
+const sdLight = new StyleDictionary({
   source: ['tokens/tokens.json'],
   preprocessors: ['tokens-studio'],
-
-  log: {
-    verbosity: 'verbose',
-    warnings: 'warn',
-  },
+  log: { verbosity: 'verbose', warnings: 'warn' },
 
   platforms: {
-    // -------------------------------------------------------------
-    // CSS — variables consumed by Storybook, docs site, web app
-    // -------------------------------------------------------------
     css: {
       transformGroup: 'tokens-studio',
       transforms: ['name/kebab'],
       buildPath: 'build/css/',
-      // Expand typography role tokens to per-property vars
-      // (so .heading1 { font-size: var(--typography-role-heading1-font-size); ... })
-      // but leave shadow as a single composite that gets stringified.
-      expand: {
-        include: ['typography'],
-      },
+      expand: { include: ['typography'] },
       files: [
         {
           destination: 'tokens.css',
           format: 'css/variables',
           options: {
-            outputReferences: true, // var(--x) instead of resolved value
+            outputReferences: true,
             selector: ':root',
           },
         },
       ],
     },
 
-    // -------------------------------------------------------------
-    // JavaScript — for component code and Storybook stories
-    // -------------------------------------------------------------
     js: {
       transformGroup: 'tokens-studio',
       transforms: ['name/camel'],
@@ -94,9 +92,6 @@ const sd = new StyleDictionary({
       ],
     },
 
-    // -------------------------------------------------------------
-    // JSON — flat key/value, useful for non-JS tooling and Figma sync
-    // -------------------------------------------------------------
     json: {
       transformGroup: 'tokens-studio',
       transforms: ['name/kebab'],
@@ -111,5 +106,54 @@ const sd = new StyleDictionary({
   },
 });
 
-await sd.cleanAllPlatforms();
-await sd.buildAllPlatforms();
+// -----------------------------------------------------------------
+// 2. Dark theme build
+//    Both files in `source` so aliases resolve. A filter narrows the
+//    output to just the dark-file tokens. `outputReferences: false`
+//    means alias targets get inlined as hex values rather than var()
+//    refs — necessary because the primitives we reference aren't in
+//    the same output file. The cascade still works: var() lookups
+//    in COMPONENTS (e.g. --color-background-default) flip when
+//    [data-theme="dark"] is set.
+// -----------------------------------------------------------------
+StyleDictionary.registerFilter({
+  name: 'isDarkOverride',
+  filter: (token) => token.filePath?.includes('themes/dark.json'),
+});
+
+const sdDark = new StyleDictionary({
+  source: [
+    'tokens/tokens.json',          // primitives, for alias resolution
+    'tokens/themes/dark.json',     // the overrides we'll emit
+  ],
+  preprocessors: ['tokens-studio'],
+  // Suppress the expected token-collision warnings; this build *is*
+  // an intentional override of semantic tokens.
+  log: { verbosity: 'silent', warnings: 'disabled' },
+
+  platforms: {
+    cssDark: {
+      transformGroup: 'tokens-studio',
+      transforms: ['name/kebab'],
+      buildPath: 'build/css/',
+      files: [
+        {
+          destination: 'tokens.dark.css',
+          format: 'css/variables',
+          filter: 'isDarkOverride',
+          options: {
+            outputReferences: false, // inline hex values, see note above
+            selector: '[data-theme="dark"]',
+          },
+        },
+      ],
+    },
+  },
+});
+
+// Run them.
+await sdLight.cleanAllPlatforms();
+await sdLight.buildAllPlatforms();
+
+await sdDark.cleanAllPlatforms();
+await sdDark.buildAllPlatforms();

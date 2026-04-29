@@ -1,0 +1,80 @@
+{
+  "$description": "Dark theme overrides. Only semantic aliases that need to flip are listed; everything else inherits from the base file. Reference the same primitives as the light theme — only the choice of primitive changes.",
+
+  "semantic": {
+    "color": {
+      "background": {
+        "default":  { "$type": "color", "$value": "{color.neutral.900}" },
+        "subtle":   { "$type": "color", "$value": "{color.neutral.800}" },
+        "muted":    { "$type": "color", "$value": "{color.neutral.700}" },
+        "inverse":  { "$type": "color", "$value": "{color.neutral.0}" }
+      },
+
+      "surface": {
+        "default":  { "$type": "color", "$value": "{color.neutral.800}" },
+        "raised":   { "$type": "color", "$value": "{color.neutral.700}", "$description": "Lighter than page bg — gives elevation in dark mode" },
+        "overlay":  { "$type": "color", "$value": "{color.neutral.700}", "$description": "Highest surface — modals, popovers" },
+        "sunken":   { "$type": "color", "$value": "{color.neutral.900}", "$description": "Recessed — inputs, wells. Darker than the page in dark mode." }
+      },
+
+      "text": {
+        "primary":   { "$type": "color", "$value": "{color.neutral.50}" },
+        "secondary": { "$type": "color", "$value": "{color.neutral.300}" },
+        "tertiary":  { "$type": "color", "$value": "{color.neutral.400}" },
+        "disabled":  { "$type": "color", "$value": "{color.neutral.600}" },
+        "inverse":   { "$type": "color", "$value": "{color.neutral.900}" },
+        "onAccent":  { "$type": "color", "$value": "{color.neutral.0}", "$description": "Stays white in both modes — accent fills are saturated enough that white on top works in both" }
+      },
+
+      "border": {
+        "default":  { "$type": "color", "$value": "{color.neutral.700}" },
+        "subtle":   { "$type": "color", "$value": "{color.neutral.800}" },
+        "strong":   { "$type": "color", "$value": "{color.neutral.500}" },
+        "focus":    { "$type": "color", "$value": "{color.blue.300}", "$description": "Lighter focus ring in dark mode for higher contrast" }
+      },
+
+      "accent": {
+        "default":  { "$type": "color", "$value": "{color.blue.400}", "$description": "Lighter step than light mode — saturated tones look muddy on dark backgrounds" },
+        "hover":    { "$type": "color", "$value": "{color.blue.300}" },
+        "active":   { "$type": "color", "$value": "{color.blue.200}" },
+        "subtle":   { "$type": "color", "$value": "{color.blue.900}", "$description": "Tinted backgrounds invert — dark tint of accent instead of light" },
+        "muted":    { "$type": "color", "$value": "{color.blue.800}" }
+      },
+
+      "feedback": {
+        "success": {
+          "default": { "$type": "color", "$value": "{color.green.400}" },
+          "subtle":  { "$type": "color", "$value": "{color.green.900}" },
+          "muted":   { "$type": "color", "$value": "{color.green.800}" },
+          "text":    { "$type": "color", "$value": "{color.green.200}" }
+        },
+        "warning": {
+          "default": { "$type": "color", "$value": "{color.amber.300}" },
+          "subtle":  { "$type": "color", "$value": "{color.amber.900}" },
+          "muted":   { "$type": "color", "$value": "{color.amber.800}" },
+          "text":    { "$type": "color", "$value": "{color.amber.200}" }
+        },
+        "danger": {
+          "default": { "$type": "color", "$value": "{color.red.400}" },
+          "subtle":  { "$type": "color", "$value": "{color.red.900}" },
+          "muted":   { "$type": "color", "$value": "{color.red.800}" },
+          "text":    { "$type": "color", "$value": "{color.red.200}" }
+        },
+        "info": {
+          "default": { "$type": "color", "$value": "{color.blue.400}" },
+          "subtle":  { "$type": "color", "$value": "{color.blue.900}" },
+          "muted":   { "$type": "color", "$value": "{color.blue.800}" },
+          "text":    { "$type": "color", "$value": "{color.blue.200}" }
+        }
+      }
+    },
+
+    "shadow": {
+      "$description": "Re-alias shadows to the dark variants you already defined as primitives.",
+      "sm":      { "$type": "shadow", "$value": "{shadow.smDarkBase}" },
+      "md":      { "$type": "shadow", "$value": "{shadow.mdDarkBase}" },
+      "lg":      { "$type": "shadow", "$value": "{shadow.lgDarkBase}" },
+      "overlay": { "$type": "shadow", "$value": "{shadow.xlDarkBase}" }
+    }
+  }
+}
