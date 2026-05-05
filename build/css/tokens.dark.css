@@ -1,0 +1,78 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+[data-theme="dark"] {
+  --bg-color-default: #1a1a18;
+  --bg-color-default-hover: #2c2c2a;
+  --bg-color-muted: #2c2c2a;
+  --bg-color-muted-hover: #444441;
+  --bg-color-muted-selected: #444441;
+  --bg-color-subtle: #444441;
+  --bg-color-inset: #1a1a18;
+  --bg-color-inverse: #ffffff;
+  --bg-color-disabled: #444441;
+  --bg-color-primary: #0b2023;
+  --bg-color-primary-muted: #174047;
+  --bg-color-primary-emphasis: #5195a1;
+  --bg-color-primary-emphasis-hover: #73aab3;
+  --bg-color-primary-emphasis-active: #96bfc6;
+  --bg-color-secondary: #260000;
+  --bg-color-secondary-muted: #4c0000;
+  --bg-color-secondary-emphasis: #aa2b2b;
+  --bg-color-secondary-emphasis-hover: #bb5454;
+  --bg-color-secondary-emphasis-active: #cb7f7f;
+  --bg-color-success-muted: #173404;
+  --bg-color-success-emphasis: #4e7f19;
+  --bg-color-success-emphasis-hover: #639922;
+  --bg-color-success-emphasis-active: #78ac35;
+  --bg-color-attention-muted: #412402;
+  --bg-color-attention-emphasis: #ba7517;
+  --bg-color-attention-emphasis-hover: #d4891a;
+  --bg-color-attention-emphasis-active: #ef9f27;
+  --bg-color-danger-muted: #501313;
+  --bg-color-danger-emphasis: #c83534;
+  --bg-color-danger-emphasis-hover: #e24b4a;
+  --bg-color-danger-emphasis-active: #e86e6d;
+  --bg-color-info-emphasis: #2472c0;
+  --bg-color-info-emphasis-hover: #378add;
+  --bg-color-info-emphasis-active: #5498dc;
+  --fg-color-default: #f9f9f8;
+  --fg-color-muted: #c8c7c0;
+  --fg-color-subtle: #888780;
+  --fg-color-disabled: #5f5e5a;
+  --fg-color-inverse: #1a1a18;
+  --fg-color-on-emphasis: #ffffff;
+  --fg-color-on-muted: #f9f9f8;
+  --fg-color-primary: #96bfc6;
+  --fg-color-secondary: #cb7f7f;
+  --fg-color-success: #78ac35;
+  --fg-color-attention: #d4891a;
+  --fg-color-danger: #e86e6d;
+  --fg-color-info: #5498dc;
+  --fg-color-link: #96bfc6;
+  --border-color-default: #444441;
+  --border-color-muted: #2c2c2a;
+  --border-color-emphasis: #888780;
+  --border-color-disabled: #2c2c2a;
+  --border-color-focus: #96bfc6;
+  --border-color-hover: #5f5e5a;
+  --border-color-selected: #73aab3;
+  --border-color-primary: #5195a1;
+  --border-color-primary-emphasis: #73aab3;
+  --border-color-secondary: #aa2b2b;
+  --border-color-secondary-emphasis: #bb5454;
+  --border-color-success: #4e7f19;
+  --border-color-attention: #ba7517;
+  --border-color-danger: #c83534;
+  --border-color-info: #2472c0;
+  --border-color-divider: #2c2c2a;
+  --shadow-color-default: rgba(0, 0, 0, 0.4);
+  --shadow-color-muted: rgba(0, 0, 0, 0.2);
+  --shadow-color-emphasis: rgba(0, 0, 0, 0.55);
+  --shadow-color-overlay: rgba(0, 0, 0, 0.65);
+  --shadow-color-inset: rgba(0, 0, 0, 0.2);
+  --shadow-color-primary-muted: #5195a1;
+  --shadow-color-secondary-muted: #aa2b2b;
+  --shadow-color-danger-muted: #c83534;
+}
