@@ -296,6 +296,33 @@
         "$type": "color",
         "$value": "{color.red.500}"
       }
+    },
+    "shadow": {
+      "$description": "Dark mode shadows use heavier opacity to remain visible.",
+      "none": {
+        "$type": "shadow",
+        "$value": "{shadow.noneBase}"
+      },
+      "flat": {
+        "$type": "shadow",
+        "$value": "{shadow.noneBase}"
+      },
+      "subtle": {
+        "$type": "shadow",
+        "$value": "{shadow.smDarkBase}"
+      },
+      "raised": {
+        "$type": "shadow",
+        "$value": "{shadow.mdDarkBase}"
+      },
+      "overlay": {
+        "$type": "shadow",
+        "$value": "{shadow.lgDarkBase}"
+      },
+      "modal": {
+        "$type": "shadow",
+        "$value": "{shadow.xlDarkBase}"
+      }
     }
   }
 }

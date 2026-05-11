@@ -202,10 +202,11 @@
   --pagination-item-background: rgba(0, 0, 0, 0);
   --toast-max-width: 360px;
   --shadow-none: var(--shadow-none-base);
-  --shadow-sm: var(--shadow-sm-base);
-  --shadow-md: var(--shadow-md-base);
-  --shadow-lg: var(--shadow-lg-base);
-  --shadow-overlay: var(--shadow-xl-base);
+  --shadow-flat: var(--shadow-none-base); /** No elevation */
+  --shadow-subtle: var(--shadow-sm-base); /** Slight lift — secondary cards */
+  --shadow-raised: var(--shadow-md-base); /** Standard card elevation */
+  --shadow-overlay: var(--shadow-lg-base); /** Popovers, dropdowns, tooltips */
+  --shadow-modal: var(--shadow-xl-base); /** Modals, full-screen sheets */
   --bg-color-default: var(--color-neutral-0);
   --bg-color-default-hover: var(--color-neutral-50);
   --bg-color-muted: var(--color-neutral-50);
@@ -282,38 +283,21 @@
   --space-2xl: var(--dimension-12);
   --space-3xl: var(--dimension-16);
   --space-4xl: var(--dimension-24);
-  --typography-font-family-display: var(--font-family-display); /** Large marketing/hero text */
-  --typography-font-family-heading: var(--font-family-sans); /** Section and component headings */
-  --typography-font-family-body: var(--font-family-sans); /** Default body text */
-  --typography-font-family-code: var(--font-family-mono); /** Inline and block code */
-  --typography-scale-2xs: var(--font-size-10);
-  --typography-scale-xs: var(--font-size-12);
-  --typography-scale-sm: var(--font-size-14);
-  --typography-scale-md: var(--font-size-16);
-  --typography-scale-lg: var(--font-size-18);
-  --typography-scale-xl: var(--font-size-20);
-  --typography-scale-2xl: var(--font-size-24);
-  --typography-scale-3xl: var(--font-size-28);
-  --typography-scale-4xl: var(--font-size-32);
-  --typography-scale-5xl: var(--font-size-40);
-  --typography-scale-6xl: var(--font-size-48);
-  --typography-scale-7xl: var(--font-size-56);
-  --typography-scale-8xl: var(--font-size-64);
-  --typography-scale-9xl: var(--font-size-72);
-  --typography-weight-body: var(--font-weight-regular);
-  --typography-weight-emphasis: var(--font-weight-medium);
-  --typography-weight-heading: var(--font-weight-semibold);
-  --typography-weight-strong: var(--font-weight-bold);
-  --typography-line-height-tight: var(--line-height-tight); /** For display and large headings */
-  --typography-line-height-snug: var(--line-height-snug); /** For small headings */
-  --typography-line-height-normal: var(--line-height-normal); /** For UI labels */
-  --typography-line-height-relaxed: var(--line-height-relaxed); /** For body text */
-  --typography-line-height-loose: var(--line-height-loose); /** For reading content */
-  --typography-letter-spacing-display: var(--letter-spacing-tighter);
-  --typography-letter-spacing-heading: var(--letter-spacing-tight);
-  --typography-letter-spacing-ui: var(--letter-spacing-snug);
-  --typography-letter-spacing-body: var(--letter-spacing-normal);
-  --typography-letter-spacing-eyebrow: var(--letter-spacing-wider);
+  --radius-none: var(--border-radius-none);
+  --radius-sm: var(--border-radius-sm);
+  --radius-md: var(--border-radius-md);
+  --radius-lg: var(--border-radius-lg);
+  --radius-xl: var(--border-radius-xl);
+  --radius-full: var(--border-radius-full);
+  --radius-2xl: var(--border-radius-2xl);
+  --motion-duration-instant: var(--duration-instant);
+  --motion-duration-fast: var(--duration-fast);
+  --motion-duration-normal: var(--duration-normal);
+  --motion-duration-slow: var(--duration-slow);
+  --motion-easing-default: var(--easing-ease-in-out);
+  --motion-easing-enter: var(--easing-ease-out);
+  --motion-easing-exit: var(--easing-ease-in);
+  --motion-easing-spring: var(--easing-spring);
   --typography-role-display-font-family: var(--font-family-display);
   --typography-role-display-font-size: var(--font-size-72);
   --typography-role-display-font-weight: var(--font-weight-semibold);
@@ -399,26 +383,6 @@
   --typography-role-code-font-weight: var(--font-weight-regular);
   --typography-role-code-line-height: var(--line-height-normal);
   --typography-role-code-letter-spacing: var(--letter-spacing-normal);
-  --radius-none: var(--border-radius-none);
-  --radius-sm: var(--border-radius-sm);
-  --radius-md: var(--border-radius-md);
-  --radius-lg: var(--border-radius-lg);
-  --radius-xl: var(--border-radius-xl);
-  --radius-full: var(--border-radius-full);
-  --radius-2xl: var(--border-radius-2xl);
-  --motion-duration-instant: var(--duration-instant);
-  --motion-duration-fast: var(--duration-fast);
-  --motion-duration-normal: var(--duration-normal);
-  --motion-duration-slow: var(--duration-slow);
-  --motion-easing-default: var(--easing-ease-in-out);
-  --motion-easing-enter: var(--easing-ease-out);
-  --motion-easing-exit: var(--easing-ease-in);
-  --motion-easing-spring: var(--easing-spring);
-  --elevation-flat-border-width: var(--border-width-1);
-  --elevation-subtle-border-width: var(--border-width-1);
-  --elevation-raised-border-width: var(--border-width-1);
-  --elevation-overlay-border-width: var(--border-width-1);
-  --elevation-modal-border-width: var(--border-width-1);
   --density-default-padding-xs: var(--dimension-1);
   --density-default-padding-sm: var(--dimension-2);
   --density-default-padding-md: var(--dimension-3);
@@ -446,18 +410,24 @@
   --density-comfortable-control-height-md: var(--dimension-12);
   --density-comfortable-control-height-lg: var(--dimension-16);
   --density-comfortable-gap: var(--dimension-3);
+  --button-font-size: var(--font-size-14);
+  --button-font-weight: var(--font-weight-medium);
   --button-danger-background-hover: var(--color-red-700);
   --button-size-sm-padding-y: var(--dimension-1);
   --button-size-sm-padding-x: var(--dimension-3);
+  --button-size-sm-font-size: var(--font-size-12);
   --button-size-sm-height: var(--dimension-8);
   --button-size-md-padding-y: var(--dimension-2);
   --button-size-md-padding-x: var(--dimension-4);
+  --button-size-md-font-size: var(--font-size-14);
   --button-size-md-height: var(--dimension-10);
   --button-size-lg-padding-y: var(--dimension-3);
   --button-size-lg-padding-x: var(--dimension-6);
+  --button-size-lg-font-size: var(--font-size-16);
   --button-size-lg-height: var(--dimension-12);
   --input-border-width: var(--border-width-1);
   --input-focus-ring-width: var(--border-width-2);
+  --card-border-width: var(--border-width-1);
   --badge-size-sm-font-size: var(--font-size-11);
   --badge-size-sm-padding-y: var(--dimension-0);
   --badge-size-sm-padding-x: var(--dimension-2);
@@ -482,14 +452,27 @@
   --switch-thumb-size: var(--dimension-4);
   --switch-thumb-radius: var(--border-radius-full);
   --switch-padding: var(--dimension-1);
+  --select-font-size: var(--font-size-14);
   --select-height: var(--dimension-10);
+  --table-header-font-size: var(--font-size-12);
+  --table-header-font-weight: var(--font-weight-medium);
+  --table-cell-font-size: var(--font-size-14);
   --table-border-width: var(--border-width-1);
   --divider-thickness: var(--border-width-1);
+  --tabs-tab-font-size: var(--font-size-14);
+  --tabs-tab-font-weight: var(--font-weight-medium);
   --tabs-indicator-height: var(--border-width-2);
+  --breadcrumb-font-size: var(--font-size-14);
   --pagination-item-size: var(--dimension-8);
+  --pagination-item-font-size: var(--font-size-14);
+  --pagination-item-font-weight: var(--font-weight-medium);
   --alert-border-width: var(--border-width-1);
   --alert-icon-size: var(--dimension-5);
+  --alert-title-font-size: var(--font-size-14);
+  --alert-title-font-weight: var(--font-weight-semibold);
+  --alert-body-font-size: var(--font-size-14);
   --toast-border-width: var(--border-width-1);
+  --toast-font-size: var(--font-size-14);
   --toast-icon-size: var(--dimension-5);
   --progress-height: var(--dimension-1);
   --progress-height-large: var(--dimension-2);
@@ -501,28 +484,13 @@
   --avatar-size-lg: var(--dimension-10);
   --avatar-size-xl: var(--dimension-12);
   --avatar-border-radius: var(--border-radius-full);
+  --avatar-font-size: var(--font-size-14);
+  --avatar-font-weight: var(--font-weight-medium);
   --avatar-border-width: var(--border-width-1);
   --avatar-ring-width: var(--border-width-2);
-  --elevation-flat-background: var(--bg-color-default);
-  --elevation-flat-border: var(--border-color-muted);
-  --elevation-flat-shadow: var(--shadow-none);
-  --elevation-subtle-background: var(--bg-color-default);
-  --elevation-subtle-border: var(--border-color-muted);
-  --elevation-subtle-shadow: var(--shadow-sm);
-  --elevation-raised-background: var(--bg-color-default);
-  --elevation-raised-border: var(--border-color-muted);
-  --elevation-raised-shadow: var(--shadow-md);
-  --elevation-overlay-background: var(--bg-color-default);
-  --elevation-overlay-border: var(--border-color-muted);
-  --elevation-overlay-shadow: var(--shadow-lg);
-  --elevation-modal-background: var(--bg-color-default);
-  --elevation-modal-border: var(--border-color-muted);
-  --elevation-modal-shadow: var(--shadow-overlay);
   --button-padding-y: var(--space-sm);
   --button-padding-x: var(--space-md);
   --button-border-radius: var(--radius-md);
-  --button-font-size: var(--typography-scale-sm);
-  --button-font-weight: var(--typography-weight-emphasis);
   --button-transition: var(--motion-duration-fast);
   --button-primary-background: var(--bg-color-primary-emphasis);
   --button-primary-background-hover: var(--bg-color-primary-emphasis-hover);
@@ -538,9 +506,6 @@
   --button-danger-border: var(--border-color-danger);
   --button-ghost-background-hover: var(--bg-color-muted);
   --button-ghost-text: var(--fg-color-default);
-  --button-size-sm-font-size: var(--typography-scale-xs);
-  --button-size-md-font-size: var(--typography-scale-sm);
-  --button-size-lg-font-size: var(--typography-scale-md);
   --input-background: var(--bg-color-inset);
   --input-background-focus: var(--bg-color-default);
   --input-border: var(--border-color-default);
@@ -565,9 +530,11 @@
   --input-size-lg-padding-x: var(--density-default-padding-lg);
   --input-size-lg-font-size: var(--typography-role-body-font-size);
   --input-size-lg-height: var(--density-default-control-height-lg);
-  --card-border-width: var(--elevation-raised-border-width);
+  --card-background: var(--bg-color-default);
+  --card-border: var(--border-color-muted);
   --card-border-radius: var(--radius-lg);
-  --card-shadow-hover: var(--shadow-md);
+  --card-shadow: var(--shadow-raised);
+  --card-shadow-hover: var(--shadow-raised);
   --card-gap: var(--density-default-gap);
   --card-size-sm-padding-y: var(--density-default-padding-md);
   --card-size-sm-padding-x: var(--density-default-padding-lg);
@@ -592,10 +559,14 @@
   --badge-info-text: var(--fg-color-info);
   --tooltip-background: var(--bg-color-inverse);
   --tooltip-text: var(--fg-color-inverse);
+  --tooltip-shadow: var(--shadow-overlay);
   --tooltip-border-radius: var(--radius-sm);
   --tooltip-font-size: var(--typography-role-caption-font-size);
   --tooltip-padding-y: var(--density-default-padding-sm);
   --tooltip-padding-x: var(--density-default-padding-md);
+  --modal-background: var(--bg-color-default);
+  --modal-border: var(--border-color-muted);
+  --modal-shadow: var(--shadow-modal);
   --modal-gap: var(--density-default-gap);
   --modal-size-sm-padding-y: var(--density-default-padding-lg);
   --modal-size-sm-padding-x: var(--density-default-padding-lg);
@@ -650,9 +621,11 @@
   --select-border-radius: var(--radius-md);
   --select-padding-y: var(--space-sm);
   --select-padding-x: var(--space-md);
-  --select-font-size: var(--typography-scale-sm);
   --select-chevron: var(--fg-color-subtle);
+  --select-menu-background: var(--bg-color-default);
+  --select-menu-border: var(--border-color-muted);
   --select-menu-border-radius: var(--radius-md);
+  --select-menu-shadow: var(--shadow-overlay);
   --select-option-padding-y: var(--space-sm);
   --select-option-padding-x: var(--space-md);
   --select-option-bg-hover: var(--bg-color-muted);
@@ -662,12 +635,9 @@
   --table-background: var(--bg-color-default);
   --table-header-background: var(--bg-color-muted);
   --table-header-text: var(--fg-color-muted);
-  --table-header-font-size: var(--typography-scale-xs);
-  --table-header-font-weight: var(--typography-weight-emphasis);
   --table-header-padding-y: var(--space-sm);
   --table-header-padding-x: var(--space-md);
   --table-cell-text: var(--fg-color-default);
-  --table-cell-font-size: var(--typography-scale-sm);
   --table-cell-padding-y: var(--space-md);
   --table-cell-padding-x: var(--space-md);
   --table-row-border: var(--border-color-muted);
@@ -691,8 +661,6 @@
   --tabs-tab-text: var(--fg-color-muted);
   --tabs-tab-text-hover: var(--fg-color-default);
   --tabs-tab-text-active: var(--fg-color-primary);
-  --tabs-tab-font-size: var(--typography-scale-sm);
-  --tabs-tab-font-weight: var(--typography-weight-emphasis);
   --tabs-tab-padding-y: var(--space-md);
   --tabs-tab-padding-x: var(--space-md);
   --tabs-tab-background-hover: var(--bg-color-muted);
@@ -703,7 +671,6 @@
   --breadcrumb-text-hover: var(--fg-color-default);
   --breadcrumb-text-current: var(--fg-color-default);
   --breadcrumb-separator: var(--fg-color-subtle);
-  --breadcrumb-font-size: var(--typography-scale-sm);
   --breadcrumb-gap: var(--space-sm);
   --pagination-item-text: var(--fg-color-muted);
   --pagination-item-text-hover: var(--fg-color-default);
@@ -711,16 +678,11 @@
   --pagination-item-background-hover: var(--bg-color-muted);
   --pagination-item-background-active: var(--bg-color-primary-emphasis);
   --pagination-item-border-radius: var(--radius-md);
-  --pagination-item-font-size: var(--typography-scale-sm);
-  --pagination-item-font-weight: var(--typography-weight-emphasis);
   --pagination-gap: var(--space-xs);
   --alert-border-radius: var(--radius-md);
   --alert-padding-y: var(--space-md);
   --alert-padding-x: var(--space-md);
   --alert-gap: var(--space-md);
-  --alert-title-font-size: var(--typography-scale-sm);
-  --alert-title-font-weight: var(--typography-weight-heading);
-  --alert-body-font-size: var(--typography-scale-sm);
   --alert-info-background: var(--bg-color-info-emphasis);
   --alert-info-border: var(--border-color-info);
   --alert-info-icon: var(--fg-color-info);
@@ -737,12 +699,14 @@
   --alert-danger-border: var(--border-color-danger);
   --alert-danger-icon: var(--fg-color-danger);
   --alert-danger-text: var(--fg-color-danger);
+  --toast-background: var(--bg-color-default);
+  --toast-border: var(--border-color-muted);
   --toast-border-radius: var(--radius-lg);
+  --toast-shadow: var(--shadow-overlay);
   --toast-padding-y: var(--space-md);
   --toast-padding-x: var(--space-md);
   --toast-gap: var(--space-md);
   --toast-text: var(--fg-color-default);
-  --toast-font-size: var(--typography-scale-sm);
   --toast-duration: var(--motion-duration-slow);
   --progress-track-background: var(--bg-color-subtle);
   --progress-fill-background: var(--bg-color-primary-emphasis);
@@ -756,21 +720,6 @@
   --skeleton-duration: var(--motion-duration-slow);
   --avatar-background: var(--bg-color-primary-muted);
   --avatar-text: var(--fg-color-on-emphasis);
-  --avatar-font-size: var(--typography-scale-sm);
-  --avatar-font-weight: var(--typography-weight-emphasis);
   --avatar-border: var(--border-color-muted);
   --avatar-ring-color: var(--border-color-default);
-  --card-background: var(--elevation-raised-background);
-  --card-border: var(--elevation-raised-border);
-  --card-shadow: var(--elevation-raised-shadow);
-  --tooltip-shadow: var(--elevation-overlay-shadow);
-  --modal-background: var(--elevation-modal-background);
-  --modal-border: var(--elevation-modal-border);
-  --modal-shadow: var(--elevation-modal-shadow);
-  --select-menu-background: var(--elevation-overlay-background);
-  --select-menu-border: var(--elevation-overlay-border);
-  --select-menu-shadow: var(--elevation-overlay-shadow);
-  --toast-background: var(--elevation-overlay-background);
-  --toast-border: var(--elevation-overlay-border);
-  --toast-shadow: var(--elevation-overlay-shadow);
 }

@@ -192,10 +192,11 @@ export default {
     "lgDarkBase": "0px 10px 15px -3px rgba(0,0,0,0.6), 0px 4px 6px -4px rgba(0,0,0,0.4)",
     "xlDarkBase": "0px 20px 25px -5px rgba(0,0,0,0.7), 0px 8px 10px -6px rgba(0,0,0,0.5)",
     "none": "0px 0px 0px 0px #00000000",
-    "sm": "0px 1px 2px 0px rgba(0,0,0,0.05)",
-    "md": "0px 4px 6px -1px rgba(0,0,0,0.1), 0px 2px 4px -2px rgba(0,0,0,0.1)",
-    "lg": "0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)",
-    "overlay": "0px 20px 25px -5px rgba(0,0,0,0.1), 0px 8px 10px -6px rgba(0,0,0,0.1)"
+    "flat": "0px 0px 0px 0px #00000000",
+    "subtle": "0px 1px 2px 0px rgba(0,0,0,0.05)",
+    "raised": "0px 4px 6px -1px rgba(0,0,0,0.1), 0px 2px 4px -2px rgba(0,0,0,0.1)",
+    "overlay": "0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)",
+    "modal": "0px 20px 25px -5px rgba(0,0,0,0.1), 0px 8px 10px -6px rgba(0,0,0,0.1)"
   },
   "duration": {
     "instant": "0ms",
@@ -322,49 +323,30 @@ export default {
     "3xl": "64px",
     "4xl": "96px"
   },
+  "radius": {
+    "none": "0",
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "16px",
+    "full": "9999px",
+    "2xl": "24px"
+  },
+  "motion": {
+    "duration": {
+      "instant": "0ms",
+      "fast": "100ms",
+      "normal": "200ms",
+      "slow": "300ms"
+    },
+    "easing": {
+      "default": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "enter": "cubic-bezier(0, 0, 0.2, 1)",
+      "exit": "cubic-bezier(0.4, 0, 1, 1)",
+      "spring": "cubic-bezier(0.34, 1.56, 0.64, 1)"
+    }
+  },
   "typography": {
-    "fontFamily": {
-      "display": "'Inter Display', 'Inter', -apple-system, sans-serif",
-      "heading": "'Inter', 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-      "body": "'Inter', 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-      "code": "'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace"
-    },
-    "scale": {
-      "2xs": "10px",
-      "xs": "12px",
-      "sm": "14px",
-      "md": "16px",
-      "lg": "18px",
-      "xl": "20px",
-      "2xl": "24px",
-      "3xl": "28px",
-      "4xl": "32px",
-      "5xl": "40px",
-      "6xl": "48px",
-      "7xl": "56px",
-      "8xl": "64px",
-      "9xl": "72px"
-    },
-    "weight": {
-      "body": "400",
-      "emphasis": "500",
-      "heading": "600",
-      "strong": "700"
-    },
-    "lineHeight": {
-      "tight": 1.25,
-      "snug": 1.375,
-      "normal": 1.5,
-      "relaxed": 1.625,
-      "loose": 2
-    },
-    "letterSpacing": {
-      "display": "-0.04em",
-      "heading": "-0.02em",
-      "ui": "-0.01em",
-      "body": "0",
-      "eyebrow": "0.06em"
-    },
     "role": {
       "display": {
         "fontFamily": "'Inter Display', 'Inter', -apple-system, sans-serif",
@@ -485,61 +467,6 @@ export default {
         "lineHeight": 1.5,
         "letterSpacing": "0"
       }
-    }
-  },
-  "radius": {
-    "none": "0",
-    "sm": "4px",
-    "md": "8px",
-    "lg": "12px",
-    "xl": "16px",
-    "full": "9999px",
-    "2xl": "24px"
-  },
-  "motion": {
-    "duration": {
-      "instant": "0ms",
-      "fast": "100ms",
-      "normal": "200ms",
-      "slow": "300ms"
-    },
-    "easing": {
-      "default": "cubic-bezier(0.4, 0, 0.2, 1)",
-      "enter": "cubic-bezier(0, 0, 0.2, 1)",
-      "exit": "cubic-bezier(0.4, 0, 1, 1)",
-      "spring": "cubic-bezier(0.34, 1.56, 0.64, 1)"
-    }
-  },
-  "elevation": {
-    "flat": {
-      "background": "#ffffff",
-      "border": "#f2f1ef",
-      "borderWidth": "1px",
-      "shadow": "0px 0px 0px 0px #00000000"
-    },
-    "subtle": {
-      "background": "#ffffff",
-      "border": "#f2f1ef",
-      "borderWidth": "1px",
-      "shadow": "0px 1px 2px 0px rgba(0,0,0,0.05)"
-    },
-    "raised": {
-      "background": "#ffffff",
-      "border": "#f2f1ef",
-      "borderWidth": "1px",
-      "shadow": "0px 4px 6px -1px rgba(0,0,0,0.1), 0px 2px 4px -2px rgba(0,0,0,0.1)"
-    },
-    "overlay": {
-      "background": "#ffffff",
-      "border": "#f2f1ef",
-      "borderWidth": "1px",
-      "shadow": "0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)"
-    },
-    "modal": {
-      "background": "#ffffff",
-      "border": "#f2f1ef",
-      "borderWidth": "1px",
-      "shadow": "0px 20px 25px -5px rgba(0,0,0,0.1), 0px 8px 10px -6px rgba(0,0,0,0.1)"
     }
   },
   "density": {
